@@ -117,3 +117,6 @@ source $ZSH/oh-my-zsh.sh
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# File for settings local to a machine that are not put in the dotfiles repo
+[ -e "$HOME/.zshrc.local" ] && \. "$HOME/.zshrc.local"
