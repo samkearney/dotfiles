@@ -191,6 +191,9 @@
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=
   # Custom icon.
+  if [[ -n "$IS_DEVCONTAINER" ]]; then
+    typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
+  fi
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
   ################################[ prompt_char: prompt symbol ]################################
