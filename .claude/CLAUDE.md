@@ -1,3 +1,3 @@
 # Claude rules for working with all codebases
 
-- Do not put non-ASCII characters into code unless it is explicitly called for. For example, do not put unicode arrow sigils, ellipses, or em-dashes into comments.
+- Do not put unicode ellipsis characters, arrow sigils, or em-dashes into code comments. Other non-ASCII characters might be suitable for code comments at your discretion.
