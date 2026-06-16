@@ -7,20 +7,28 @@
 -- vim.keymap.set('', '<LeftDrag>', '')
 -- vim.keymap.set('', '<LeftRelease>', '')
 
-vim.keymap.set({'n', 'v'}, '<leader>cd', function()
+vim.keymap.set({ "n", "v" }, "<leader>cd", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled({ bufnr = 0 }), { bufnr = 0 })
 end, {
-  desc = "Toggle LSP diagnostics on/off for the current buffer"
+  desc = "Toggle LSP diagnostics on/off for the current buffer",
 })
 
-vim.keymap.set({'n', 'v'}, '<leader>cD', function()
+vim.keymap.set({ "n", "v" }, "<leader>cD", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, {
-  desc = "Toggle LSP diagnostics on/off globally"
+  desc = "Toggle LSP diagnostics on/off globally",
 })
 
-vim.keymap.set({'n', 'v'}, '<leader>cg', function()
-  vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
+vim.keymap.set({ "n", "v" }, "<leader>cg", function()
+  vim.api.nvim_set_hl(0, "@lsp.type.comment.cpp", {})
 end, {
-  desc = "Turn off C/C++ ifdef graying"
+  desc = "Turn off C/C++ ifdef graying",
 })
+
+-- Copy relative path and line number to clipboard
+vim.keymap.set("n", "<leader>fl", function()
+  local path = vim.fn.expand("%")
+  local line = vim.fn.line(".")
+  vim.fn.setreg("+", path .. ":" .. line)
+  print("Copied: " .. path .. ":" .. line)
+end, { desc = "Copy file path and line number" })
